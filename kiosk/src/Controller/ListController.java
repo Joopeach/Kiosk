@@ -94,11 +94,26 @@ public class ListController implements Initializable {
     @FXML
     void cancel(ActionEvent event) {
 
+    	
     }
 
     @FXML
     void success(ActionEvent event) {
 
+    }
+    
+    // 페이지 이동 메소드
+    public void loadpage(String page) {
+    	
+    	try {
+    		Parent parent = FXMLLoader.load(getClass().getResource("/FXML/" + page + ".fxml"));
+    		
+    		borderpane.setTop(parent);
+    		
+    	}catch (Exception e) {
+    		
+		}
+    	
     }
 	    
 	

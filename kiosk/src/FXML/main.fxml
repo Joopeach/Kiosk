@@ -29,14 +29,9 @@
             <Image url="@cake.png" />
          </image>
       </ImageView>
-      <Button fx:id="btncoffee" layoutX="81.0" layoutY="336.0" mnemonicParsing="false" onAction="#coffee" prefHeight="45.0" prefWidth="193.0" text="Coffee &amp; Beverage">
+      <Button fx:id="btncoffee" layoutX="195.0" layoutY="336.0" mnemonicParsing="false" onAction="#coffee" prefHeight="45.0" prefWidth="193.0" text="Coffee &amp; Beverage">
          <font>
             <Font size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="btndessert" layoutX="365.0" layoutY="336.0" mnemonicParsing="false" onAction="#dessert" prefHeight="30.0" prefWidth="121.0" text="Dessert">
-         <font>
-            <Font size="24.0" />
          </font>
       </Button>
       <Button fx:id="btnadmin" layoutX="536.0" layoutY="14.0" mnemonicParsing="false" onAction="#admin" onMouseClicked="#adminlogin" text="admin" />

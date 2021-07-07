@@ -37,9 +37,6 @@ public class MainController implements Initializable {
     private Button btncoffee;
 
     @FXML
-    private Button btndessert;
-
-    @FXML
     private Button btnadmin;
 
     @FXML
@@ -66,26 +63,6 @@ public class MainController implements Initializable {
     		
     	}catch (Exception e) {
 			e.printStackTrace();
-		}
-    	
-    }
-
-    @FXML
-    void dessert(ActionEvent event) {
-
-    	
-    }
-    
-    // 페이지 이동 메소드???
-    public void loadpage(String page) {
-    	
-    	try {
-    		Parent parent = FXMLLoader.load(getClass().getResource("/FXML/" + page + ".fxml"));
-    		
-    		anchorpane.getChildren().add(parent);
-    		
-    	}catch (Exception e) {
-			
 		}
     	
     }
