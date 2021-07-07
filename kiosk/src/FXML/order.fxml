@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:controller="Controller.OrderController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E6B36D;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="image1" fitHeight="130.0" fitWidth="141.0" layoutX="235.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pictures/logo.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblchoice" alignment="CENTER" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #CD853F;">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnbeverage" layoutX="24.0" layoutY="60.0" mnemonicParsing="false" onAction="#beverage" prefHeight="33.0" prefWidth="121.0" text="Beverage">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btndessert" layoutX="183.0" layoutY="60.0" mnemonicParsing="false" onAction="#dessert" prefHeight="7.0" prefWidth="95.0" text="Dessert">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnorder" layoutX="390.0" layoutY="340.0" mnemonicParsing="false" onAction="#order" text="주문">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btncancel" layoutX="495.0" layoutY="340.0" mnemonicParsing="false" onAction="#cancel" text="취소">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="130.0" fitWidth="141.0" layoutX="31.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
