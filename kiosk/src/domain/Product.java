@@ -13,7 +13,7 @@ public class Product {
 	// 积己磊1
 	public Product() { }
 
-	// 积己磊2 
+	// 积己磊2 --> 海捞目府 率
 	public Product(int pnum, String ptitle, String pcontents, int pprice, int pstock, String pimage) {
 		this.pnum = pnum;
 		this.ptitle = ptitle;
@@ -22,6 +22,17 @@ public class Product {
 		this.pstock = pstock;
 		this.pimage = pimage;
 	}
+	
+	//积己磊 3 --> 澜丰 率
+	public Product(int pnum, String ptitle, String pcontents, int pprice, String pimage) {
+		this.pnum = pnum;
+		this.ptitle = ptitle;
+		this.pcontents = pcontents;
+		this.pprice = pprice;
+		this.pimage = pimage;
+	}
+	
+	
 	
 	// get, set
 	public int getPnum() {

@@ -39,6 +39,15 @@ public class ProductDao {
 	
 	//베이커리 메뉴 등록하는 메소드
 	   public int bakeryadd(Product product){
+		   
+		   System.out.println(
+				product.getPnum() + "\n" + 
+				product.getPtitle() + "\n" +
+				product.getPcontents() + "\n" +
+				product.getPprice() + "\n" +
+				product.getPstock() + "\n" +
+				product.getPimage() + "\n"
+		   );
 	      
 	      String sql = "insert into product values (?,?,?,?,?,?)";
 	      try {
