@@ -29,7 +29,7 @@
             <Image url="@cake.png" />
          </image>
       </ImageView>
-      <Button fx:id="btncoffee" layoutX="195.0" layoutY="336.0" mnemonicParsing="false" onAction="#coffee" prefHeight="45.0" prefWidth="193.0" text="Coffee &amp; Beverage">
+      <Button fx:id="btncoffee" layoutX="195.0" layoutY="336.0" mnemonicParsing="false" onAction="#coffee" prefHeight="45.0" prefWidth="193.0" text="주문하기">
          <font>
             <Font size="18.0" />
          </font>
