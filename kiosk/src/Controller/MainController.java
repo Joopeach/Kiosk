@@ -58,6 +58,8 @@ public class MainController implements Initializable {
     
     @FXML
     void coffee(ActionEvent event) {
+    	
+    	btncoffee.getScene().getWindow().hide();
 
     	try {
     		Stage stage = new Stage();

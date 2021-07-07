@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ListController">
+   <top>
+      <AnchorPane fx:id="cp" prefHeight="380.0" prefWidth="660.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btn_1" layoutX="30.0" layoutY="35.0" mnemonicParsing="false" onAction="#btn_1" prefHeight="121.0" prefWidth="144.0" text="Americano" />
+            <Label fx:id="lbl_1" layoutX="54.0" layoutY="171.0" prefHeight="29.0" prefWidth="96.0" text="가격" />
+            <Label fx:id="lbl_3" layoutX="493.0" layoutY="171.0" prefHeight="29.0" prefWidth="96.0" text="가격" />
+            <Label fx:id="lbl_2" layoutX="282.0" layoutY="171.0" prefHeight="29.0" prefWidth="96.0" text="가격" />
+            <Button fx:id="btn_4" layoutX="121.0" layoutY="200.0" mnemonicParsing="false" onAction="#btn_4" prefHeight="121.0" prefWidth="144.0" text="Apogato" />
+            <Button fx:id="btn_5" layoutX="378.0" layoutY="200.0" mnemonicParsing="false" onAction="#btn_5" prefHeight="121.0" prefWidth="144.0" text="Strawberry latte" />
+            <Button fx:id="btn_2" layoutX="258.0" layoutY="35.0" mnemonicParsing="false" onAction="#btn_2" prefHeight="121.0" prefWidth="144.0" text="Latte" />
+            <Button fx:id="btn_3" layoutX="493.0" layoutY="35.0" mnemonicParsing="false" onAction="#btn_3" prefHeight="121.0" prefWidth="144.0" text="Caramel Macchiato" />
+            <Label fx:id="lbl_11" layoutX="145.0" layoutY="329.0" prefHeight="29.0" prefWidth="96.0" text="가격" />
+            <Label fx:id="lbl_12" layoutX="402.0" layoutY="329.0" prefHeight="29.0" prefWidth="96.0" text="가격" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <TableView fx:id="tableview" prefHeight="134.0" prefWidth="660.0" BorderPane.alignment="CENTER">
+        <columns>
+            <TableColumn prefWidth="242.0" text="제품명" />
+            <TableColumn prefWidth="187.33334350585938" text="수량" />
+            <TableColumn prefWidth="229.33334350585938" text="가격" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="69.0" prefWidth="660.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btncancel" layoutX="197.0" layoutY="16.0" mnemonicParsing="false" onAction="#cancel" prefHeight="37.0" prefWidth="102.0" text="주문 취소" />
+            <Button fx:id="btnsuccess" layoutX="393.0" layoutY="16.0" mnemonicParsing="false" onAction="#success" prefHeight="37.0" prefWidth="102.0" text="주문 완료" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
