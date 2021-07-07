@@ -28,7 +28,7 @@ public class ProductDao {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/kiosk?serverTime=UTC", "root", "1234");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kiosk?serverTime=UTC", "root", "1234");
 			
 			System.out.println("ProductDao 연동");
 			
@@ -88,9 +88,9 @@ public class ProductDao {
 	   }   
 	
 	// 모든 제품 출력하기
-	public ObservableList<Product> allproduct() {
+	public ArrayList<Product> allproduct() {
 		
-		ObservableList<Product> products = FXCollections.observableArrayList();
+		ArrayList<Product> products = new ArrayList<>();
 		
 		String SQL = "select * from product";
 		
@@ -121,10 +121,10 @@ public class ProductDao {
 		return null;
 	}
 	
-	// 선택된 버튼의 정보 출력하기
-	public Product getproduct(String select) {
+	// 선택된 버튼의 정보 가져오기
+	public ObservableList<Product> getproduct(String select) {
 		
-		Product product = new Product();
+		ObservableList<Product> products = FXCollections.observableArrayList();
 		
 		String SQL = "select * from product where ptitle=?";
 		
@@ -137,19 +137,25 @@ public class ProductDao {
 			
 			if(resultSet.next()) {
 				
-				product.setPnum(resultSet.getInt(1));
-				product.setPtitle(resultSet.getString(2));
-				product.setPcontents(resultSet.getString(3));
-				product.setPprice(resultSet.getInt(4));
-				product.setPstock(resultSet.getInt(5));
+				Product product = new Product(
+						resultSet.getInt(1), 
+						resultSet.getString(2), 
+						resultSet.getString(3), 
+						resultSet.getInt(4), 
+						resultSet.getInt(5), 
+						resultSet.getString(6));
 				
-				return product;
+				// 리스트에 저장
+				products.add(product);
 			}
+			return products;
+			
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		
 		return null;
 	}
+	
 	
 }

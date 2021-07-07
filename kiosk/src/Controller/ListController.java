@@ -34,19 +34,31 @@ public class ListController implements Initializable {
     private Button btn_1;
 
     @FXML
-    private Button btn_3;
+    private Button btn_2;
 
     @FXML
-    private Button btn_2;
+    private Button btn_3;
+    
+    @FXML
+    private Button btn_4;
+
+    @FXML
+    private Button btn_5;
 
     @FXML
     private Label lbl_1;
 
     @FXML
-    private Label lbl_3;
+    private Label lbl_2;
 
     @FXML
-    private Label lbl_2;
+    private Label lbl_3;
+    
+    @FXML
+    private Label lbl_4;
+
+    @FXML
+    private Label lbl_5;
 
     @FXML
     private TableView<Product> tableview;
@@ -56,28 +68,33 @@ public class ListController implements Initializable {
 
     @FXML
     private Button btnsuccess;
+
     
     @FXML
     void btn_1(ActionEvent event) {
-
+    	
     	ProductDao productDao = ProductDao.getProductDao();
     	
-    	ObservableList<Product> products = productDao.allproduct();
+    	ArrayList<Product> products = productDao.allproduct();
     	
-    	// 제품명
-    	TableColumn tc = tableview.getColumns().get(0);
-    	tc.setCellValueFactory(new PropertyValueFactory("ptitle"));
-//    	tc.setText(products.get(1).getPtitle());
+    	if(btn_1.getText().equals("아메리카노")) {
+    		System.out.println("아메리카노 버튼 클릭");
+    	}
     	
-    	// 수량
-    	tc = tableview.getColumns().get(1);
-    	tc.setCellValueFactory(new PropertyValueFactory("pstock"));
-    	
-    	// 가격
-    	tc = tableview.getColumns().get(2);
-    	tc.setCellValueFactory(new PropertyValueFactory("pprice"));
-    	
-    	tableview.setItems(products);
+//    	// 제품명
+//    	TableColumn tc = tableview.getColumns().get(0);
+//    	tc.setCellValueFactory(new PropertyValueFactory("ptitle"));
+////    	tc.setText(products.get(1).getPtitle());
+//    	
+//    	// 수량
+//    	tc = tableview.getColumns().get(1);
+//    	tc.setCellValueFactory(new PropertyValueFactory("pstock"));
+//    	
+//    	// 가격
+//    	tc = tableview.getColumns().get(2);
+//    	tc.setCellValueFactory(new PropertyValueFactory("pprice"));
+//    	
+//    	tableview.setItems(products);
   
     }
 
@@ -90,16 +107,55 @@ public class ListController implements Initializable {
     void btn_3(ActionEvent event) {
 
     }
+    
+    @FXML
+    void btn_4(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btn_5(ActionEvent event) {
+
+    }
 
     @FXML
     void cancel(ActionEvent event) {
+    	
+    	// 화면 전환
+    	btncancel.getScene().getWindow().hide();
 
+    	try {
+    		Stage stage = new Stage();
+    		Parent parent = FXMLLoader.load(getClass().getResource("/FXML/main.fxml"));
+    		Scene scene = new Scene(parent);
+    		stage.setScene(scene);
+    		stage.setResizable(false);
+    		stage.setTitle("MAIN PAGE");
+    		stage.show();
+    		
+    	}catch (Exception e) {
+			
+		}
     	
     }
 
     @FXML
     void success(ActionEvent event) {
 
+    	// 화면 전환
+    	btnsuccess.getScene().getWindow().hide();
+
+    	try {
+    		Stage stage = new Stage();
+    		Parent parent = FXMLLoader.load(getClass().getResource("/FXML/success.fxml"));
+    		Scene scene = new Scene(parent);
+    		stage.setResizable(false);
+    		stage.setTitle("SUCCESS PAGE");
+    		stage.show();
+    		
+    	}catch (Exception e) {
+			
+		}    	
     }
     
     // 페이지 이동 메소드
@@ -124,7 +180,7 @@ public class ListController implements Initializable {
 		ProductDao productDao = ProductDao.getProductDao();
 		
 		// dao 메소드 실행
-		ObservableList<Product> products = productDao.allproduct();
+		ArrayList<Product> products = productDao.allproduct();
 		
 		// 각 컨트롤러에 값 넣기
 //		System.out.println(products.get(0).getPtitle());
