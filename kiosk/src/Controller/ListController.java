@@ -22,7 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class CoffeeController implements Initializable {
+public class ListController implements Initializable {
 
 	@FXML
     private BorderPane borderpane;

@@ -57,7 +57,7 @@ public class MainController implements Initializable {
 
     	try {
     		Stage stage = new Stage();
-    		Parent parent = FXMLLoader.load(getClass().getResource("/FXML/coffee.fxml"));
+    		Parent parent = FXMLLoader.load(getClass().getResource("/FXML/list.fxml"));
     		Scene scene = new Scene(parent);
     		stage.setScene(scene);
     		stage.setResizable(false);
