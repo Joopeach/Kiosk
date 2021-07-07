@@ -34,6 +34,6 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnadmin" layoutX="536.0" layoutY="14.0" mnemonicParsing="false" onAction="#admin" onMouseClicked="#adminlogin" text="admin" />
+      <Button fx:id="btnadmin" layoutX="536.0" layoutY="14.0" mnemonicParsing="false" onAction="#admin" text="admin" />
    </children>
 </AnchorPane>

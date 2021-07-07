@@ -6,12 +6,16 @@ import java.util.ResourceBundle;
 import DAO.MemberDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 
 public class AdminController implements Initializable {
 
@@ -39,8 +43,19 @@ public class AdminController implements Initializable {
     		Alert alert = new Alert(AlertType.CONFIRMATION);
     		alert.setTitle("로그인 성공");
     		alert.setContentText("메뉴등록화면으로 돌아갑니다");
-    		alert.showAndWait();    		
-    		
+    		alert.showAndWait();  
+    		try {
+            	Parent parent = FXMLLoader.load(getClass().getResource("/FXML/padd.fxml"));
+            	Scene scene = new Scene(parent);
+            	Stage stage = new Stage();
+            	stage.setScene(scene);
+            	stage.setResizable(false);
+            	stage.setTitle("메뉴 등록");
+            	stage.show();        	
+            }
+            	catch(Exception e) {
+            		e.printStackTrace();
+            	} 	
     	}else {//아이디와 비밀번호 확인 또는 오류
     		System.out.println("오류");
     	}

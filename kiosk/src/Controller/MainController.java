@@ -42,11 +42,18 @@ public class MainController implements Initializable {
     @FXML
     void admin(ActionEvent event) {
     	
-    }
-
-    @FXML
-    void adminlogin(MouseEvent event) {
-
+    	try {
+        	Parent parent = FXMLLoader.load(getClass().getResource("/FXML/admin.fxml"));
+        	Scene scene = new Scene(parent);
+        	Stage stage = new Stage();
+        	stage.setScene(scene);
+        	stage.setResizable(false);
+        	stage.setTitle("admin »Æ¿Œ");
+        	stage.show();        	
+        }
+        	catch(Exception e) {
+        		e.printStackTrace();
+        	} 
     }
     
     @FXML
