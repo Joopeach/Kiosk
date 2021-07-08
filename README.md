@@ -30,6 +30,11 @@ create table kiosk.product (
     pimage varchar(1000)
 );
 ```
+|칼럼|설명|
+|----|----|
+|pnum|제품번호|
+|ptitle|제품명|
+
 #### 3. 주문(order)
 ```
 create table kiosk.order (
