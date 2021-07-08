@@ -7,7 +7,7 @@
 #### 이찬주
 #### 최은영
 
-#### mysql DB
+### mysql DB
 ```
 create table member(
   num INT primary key,
