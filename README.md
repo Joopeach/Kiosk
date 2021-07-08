@@ -74,3 +74,32 @@ create table kiosk.order (
     foreign key (num) references member(num)
 );
 ```
+
+##### 4. 주문들어온 정보(Kitchen_order)
+```
+create table kiosk.Kitchen_order (
+	num int primary key auto_increment,
+	pnum varchar(10) not null,
+	pquantity varchar(100) not null, 
+	pprice int not null ,
+	otime varchar(100),
+	osituation varchar(100) not null,
+	foreign key(pnum) references Product(pnum)
+);
+```
+##### 정보
+|칼럼|설명|
+|----|----|
+|num|회원번호|
+|pnum|제품명|
+|pquantity|제품갯수|
+|pprice|제품가격|
+|otime|주문시각|
+|osituation|주문현황|
+
+##### 예시
+|num|pnum|pquantity|pprice|otime|osituation|
+|----|----|----|----|----|----|
+|1|1 아메리카노|1|3000|13:00|완료|
+|2|3 카라멜마키아또|2|6000|14:15|진행중|
+
