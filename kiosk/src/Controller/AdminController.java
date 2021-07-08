@@ -33,6 +33,30 @@ public class AdminController implements Initializable {
 
     @FXML
     private PasswordField txtpw;
+    
+    @FXML
+    private Button btnjoin;
+
+    @FXML
+    void join(ActionEvent event) {//회원등록
+    	
+    	try {
+        	Parent parent = FXMLLoader.load(getClass().getResource("/FXML/join.fxml"));
+        	Scene scene = new Scene(parent);
+        	Stage stage = new Stage();
+        	stage.setScene(scene);
+        	stage.setResizable(false);
+        	stage.setTitle("회원등록");
+        	stage.show();        	
+        }
+        	catch(Exception e) {
+        		e.printStackTrace();
+        	} 
+    	
+    	
+
+    }
+
 	
 	@FXML
     void login(ActionEvent event) {
@@ -57,7 +81,7 @@ public class AdminController implements Initializable {
             		e.printStackTrace();
             	} 	
     	}else {//아이디와 비밀번호 확인 또는 오류
-    		System.out.println("오류");
+    		System.out.println("관리자 전용메뉴입니다");
     	}
     	
     	

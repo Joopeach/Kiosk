@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import domain.Member;
+
 public class MemberDao {
 	
 	Connection conn;
@@ -17,7 +19,7 @@ public class MemberDao {
 	public MemberDao() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3307/kiosk?serverTime=UTC","root","1234");
+			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/kiosk?serverTime=UTC","root","971130");
 			System.out.println("DB연동 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -47,6 +49,24 @@ public class MemberDao {
 		return 0;//검증 실패
 	}
 	
-	
-	
+	public int joinin(Member member) {
+		String sql = "insert into member values(?,?,?,?,?,?)";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, member.getNum());
+			pstmt.setString(2, member.getId());
+			pstmt.setString(3, member.getPw());
+			pstmt.setString(4, member.getName());
+			pstmt.setString(5, member.getEmail());
+			pstmt.setString(6, member.getPhone());
+			
+			pstmt.executeUpdate();
+			
+			return 1;//등록성공
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}		
+		return 0;//오류 
+	}
 }

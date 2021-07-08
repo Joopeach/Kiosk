@@ -27,7 +27,7 @@ public class ProductDao {
 		// db ¿¬µ¿
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");			
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/kiosk?serverTime=UTC", "root", "1234");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kiosk?serverTime=UTC", "root", "971130");
 			
 		}catch (Exception e) {
 			e.printStackTrace();
