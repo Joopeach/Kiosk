@@ -101,5 +101,5 @@ create table kiosk.Kitchen_order (
 |num|pnum|pquantity|pprice|otime|osituation|
 |----|----|----|----|----|----|
 |1|1 아메리카노|1|3000|13:00|완료|
-|2|3 카라멜마키아또|2|6000|14:15|처리중|
+|2|3 카라멜마키아또|2|6000|14:15|진행중|
 
