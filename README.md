@@ -82,13 +82,13 @@ create table kiosk.Kitchen_order (
 |onum|주문순서|
 |num|회원번호|
 |pnum|제품번호|
-|pquantity|제품갯수|
+|oquantity|제품갯수|
 |oprice|제품총가격|
 |otime|주문시각|
 |osituation|주문현황|
 
 ##### 예시
-|onum|pnum|pquantity|oprice|otime|osituation|
+|onum|pnum|oquantity|oprice|otime|osituation|
 |----|----|----|----|----|----|
 |1|1|아메리카노|1|3000|13:00|완료|
 |2|3|카라멜마키아또|2|6000|14:15|진행중|
