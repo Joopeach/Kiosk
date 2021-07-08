@@ -68,7 +68,7 @@ create table kiosk.Kitchen_order (
 	onum int primary key auto_increment not null,
 	pnum int not null,
 	num int not null,
-	pquantity varchar(100) not null, 
+	oquantity varchar(100) not null, 
 	oprice int not null ,
 	otime varchar(100) not null,
 	osituation varchar(100) not null,
