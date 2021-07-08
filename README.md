@@ -66,29 +66,30 @@ create table kiosk.product (
 ```
 create table kiosk.Kitchen_order (
 	onum int primary key auto_increment,
-	pnum varchar(10) not null,
+	pnum int not null,
 	num int not null,
 	pquantity varchar(100) not null, 
 	oprice int not null ,
 	otime varchar(100),
 	osituation varchar(100) not null,
-	foreign key(pnum) references Product(pnum)
-	foreign key(num) references ()
+	foreign key(pnum) references Product(pnum),
+	foreign key(num) references Member(num)
 );
 ```
 ##### 정보
 |칼럼|설명|
 |----|----|
-|onum|회원번호|
-|pnum|제품명|
+|onum|주문순서|
+|num|회원번호|
+|pnum|제품번호|
 |pquantity|제품갯수|
-|oprice|제품가격|
+|oprice|제품총가격|
 |otime|주문시각|
 |osituation|주문현황|
 
 ##### 예시
 |onum|pnum|pquantity|oprice|otime|osituation|
 |----|----|----|----|----|----|
-|1|1 아메리카노|1|3000|13:00|완료|
-|2|3 카라멜마키아또|2|6000|14:15|진행중|
+|1|1|아메리카노|1|3000|13:00|완료|
+|2|3|카라멜마키아또|2|6000|14:15|진행중|
 
