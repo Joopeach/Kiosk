@@ -19,7 +19,7 @@ create table kiosk.member(
   phone varchar(45)
 );
 ```
-
+##### 정보
 |칼럼|설명|
 |----|----|
 |num|회원번호|
@@ -29,7 +29,7 @@ create table kiosk.member(
 |email|이메일|
 |phone|전화번호|
 
-#####예시
+##### 예시
 |num|id|pw|name|email|phone|
 |----|----|----|----|----|----|
 |0001|admin|1111|admin|admin@admin.com|010-1234-1234|
