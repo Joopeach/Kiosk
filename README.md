@@ -8,7 +8,7 @@
 #### 최은영
 
 #### mysql DB
-code1 create table member(
+create table member(
   num INT primary key,
   id varchar(45) not null,
   pw varchar(45) not null,
