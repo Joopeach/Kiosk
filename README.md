@@ -74,3 +74,17 @@ create table kiosk.order (
     foreign key (num) references member(num)
 );
 ```
+
+##### 4. 주문들어온 정보(Kitchen_order)
+
+create table kiosk.Kitchen_order (
+	num int primary key auto_increment,
+	pnum varchar(10) not null,
+	pquantity varchar(100) not null, 
+	pprice int not null ,
+	otime varchar(100),
+	osituation varchar(100) not null,
+	foreign key(pnum) references Product(pnum)
+);
+
+
