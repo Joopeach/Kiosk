@@ -95,3 +95,5 @@ create table kiosk.Kitchen_order (
 |pprice|제품가격|
 |otime|주문시각|
 |osituation|주문현황|
+
+##### 예시
