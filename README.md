@@ -65,12 +65,12 @@ create table kiosk.product (
 ##### 3. 주문들어온 정보(Kitchen_order)
 ```
 create table kiosk.Kitchen_order (
-	onum int primary key auto_increment,
+	onum int primary key auto_increment not null,
 	pnum int not null,
 	num int not null,
 	pquantity varchar(100) not null, 
 	oprice int not null ,
-	otime varchar(100),
+	otime varchar(100) not null,
 	osituation varchar(100) not null,
 	foreign key(pnum) references Product(pnum),
 	foreign key(num) references Member(num)
