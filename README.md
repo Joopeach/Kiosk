@@ -9,7 +9,7 @@
 
 ### mysql DB
 ```
-create table member(
+create table kiosk.member(
   num INT primary key,
   id varchar(45) not null,
   pw varchar(45) not null,
@@ -19,7 +19,7 @@ create table member(
 );
 
 create table kiosk.product (
-	pnum int primary key,
+    pnum int primary key,
     ptitle varchar(45) not null,
     pcontents varchar(1000) not null,
     pprice int not null,
