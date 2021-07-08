@@ -30,7 +30,7 @@ create table kiosk.product (
     pimage varchar(1000)
 );
 ```
-##### 3. 주문(order)
+#### 3. 주문(order)
 ```
 create table kiosk.order (
     onum int primary key,
