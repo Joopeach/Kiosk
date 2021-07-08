@@ -34,6 +34,10 @@ create table kiosk.product (
 |----|----|
 |pnum|제품번호|
 |ptitle|제품명|
+|pcontents|제품설명|
+|pprice|제품가격|
+|pstock|제품재고|
+|pimgag|이미지|
 
 #### 3. 주문(order)
 ```
