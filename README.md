@@ -29,6 +29,12 @@ create table kiosk.member(
 |email|이메일|
 |phone|전화번호|
 
+#####예시
+|num|id|pw|name|email|phone|
+|----|----|----|----|----|----|
+|0001|admin|1111|admin|admin@admin.com|010-1234-1234|
+
+
 
 #### 2. 제품(product)
 ```
