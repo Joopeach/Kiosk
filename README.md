@@ -33,7 +33,7 @@ create table kiosk.product (
 ##### 3. 주문(order)
 ```
 create table kiosk.order (
-	onum int primary key,
+    onum int primary key,
     pnum int not null,
     num int not null,
     otime varchar(100) not null,
