@@ -60,7 +60,7 @@ create table kiosk.product (
 ##### 예시
 |pnum|ptitle|pcontents|pprice|pstock|pimgae|
 |----|----|----|----|----|----|
-|1|샌드위치|햄치즈|6000|15| image경로|
+|1|샌드위치|햄치즈|6000|15| ../image/ryan.png|
 
 #### 3. 주문(order)
 ```
