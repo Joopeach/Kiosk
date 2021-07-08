@@ -7,7 +7,8 @@
 #### 이찬주
 #### 최은영
 
-### mysql DB
+### mysql DB 구성
+#### 1. 회원(member)
 ```
 create table kiosk.member(
   num INT primary key,
@@ -17,7 +18,9 @@ create table kiosk.member(
   email varchar(45),
   phone varchar(45)
 );
-
+```
+#### 2. 제품(product)
+```
 create table kiosk.product (
     pnum int primary key,
     ptitle varchar(45) not null,
@@ -26,7 +29,9 @@ create table kiosk.product (
     pstock int,
     pimage varchar(1000)
 );
-
+```
+##### 3. 주문(order)
+```
 create table kiosk.order (
 	onum int primary key,
     pnum int not null,
