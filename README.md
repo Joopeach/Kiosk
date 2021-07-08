@@ -87,4 +87,11 @@ create table kiosk.Kitchen_order (
 	foreign key(pnum) references Product(pnum)
 );
 ```
-
+##### 정보
+|칼럼|설명|
+|num|회원번호|
+|pnum|제품명|
+|pquantity|제품갯수|
+|pprice|제품가격|
+|otime|주문시각|
+|osituation|주문현황|
