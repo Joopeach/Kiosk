@@ -76,7 +76,7 @@ create table kiosk.order (
 ```
 
 ##### 4. 주문들어온 정보(Kitchen_order)
-
+```
 create table kiosk.Kitchen_order (
 	num int primary key auto_increment,
 	pnum varchar(10) not null,
@@ -86,5 +86,5 @@ create table kiosk.Kitchen_order (
 	osituation varchar(100) not null,
 	foreign key(pnum) references Product(pnum)
 );
-
+```
 
