@@ -26,11 +26,8 @@ public class ProductDao {
 		
 		// db 연동
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kiosk?serverTime=UTC", "root", "1234");
-			
-			System.out.println("ProductDao 연동");
+			Class.forName("com.mysql.cj.jdbc.Driver");			
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/kiosk?serverTime=UTC", "root", "1234");
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -39,15 +36,12 @@ public class ProductDao {
 	
 	//베이커리 메뉴 등록하는 메소드
 	   public int bakeryadd(Product product){
-		   
-		   System.out.println(
-				product.getPnum() + "\n" + 
-				product.getPtitle() + "\n" +
-				product.getPcontents() + "\n" +
-				product.getPprice() + "\n" +
-				product.getPstock() + "\n" +
-				product.getPimage() + "\n"
-		   );
+		   System.out.println("제품번호 : " + product.getPnum());
+		   System.out.println("제품명 : " + product.getPtitle());
+		   System.out.println("제품설명 : " + product.getPcontents());
+		   System.out.println("제품가격 : " + product.getPprice());
+		   System.out.println("제품재고 : " + product.getPstock());
+		   System.out.println("제품이미지 : " + product.getPimage());
 	      
 	      String sql = "insert into product values (?,?,?,?,?,?)";
 	      try {
@@ -64,16 +58,19 @@ public class ProductDao {
 	         return 1;//등록성공
 	         
 	         }catch (Exception e) {
-	            // TODO: handle exception
+	            e.printStackTrace();
 	         }
 	      
 	      return 0;//등록실패
-	      
-	      
 	   }
 	   
 	   //음료 메뉴 추가메소드
 	   public int coffeeadd(Product product){
+		   System.out.println("제품번호 : " + product.getPnum());
+		   System.out.println("제품명 : " + product.getPtitle());
+		   System.out.println("제품설명 : " + product.getPcontents());
+		   System.out.println("제품가격 : " + product.getPprice());
+		   System.out.println("제품이미지 : " + product.getPimage());
 	      
 	      String sql = "insert into product(pnum, ptitle, pcontents, pprice, pimage) values (?,?,?,?,?)";
 	      try {
@@ -89,7 +86,7 @@ public class ProductDao {
 	         return 1;//등록성공
 	         
 	         }catch (Exception e) {
-	            // TODO: handle exception
+	        	 e.printStackTrace();
 	         }
 	      
 	      return 0;//등록실패   

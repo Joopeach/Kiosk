@@ -55,8 +55,6 @@ public class PaddController implements Initializable {
     @FXML
     private Stage filestage;
     
-    
-    
 
     @FXML
     void image(ActionEvent event) {//이미지 등록버튼
@@ -79,18 +77,19 @@ public class PaddController implements Initializable {
     	String ptitle = txtptitle.getText();
     	String pcontents = txtpcontents.getText();
     	int pprice = Integer.parseInt(txtpprice.getText());
-    	String pstock = txtpprice.getText();
+    	String pstock = txtpstock.getText();
     	
-    	if(pstock.equals(null)) {
+    	if(pstock.equals("")) {
     		product = new Product(pnum, ptitle, pcontents, pprice, pimage);
-    		System.out.println("음료 등록 완료");
     		productdao = ProductDao.getProductDao();
     		productdao.coffeeadd(product);
+    		System.out.println("음료 등록 완료");
+    		
     	}else {
     		product = new Product(pnum, ptitle, pcontents, pprice,Integer.parseInt(pstock), pimage);
-    		System.out.println("베이커리 등록 완료");
     		productdao = ProductDao.getProductDao();
     		productdao.bakeryadd(product);
+    		System.out.println("베이커리 등록 완료");
     	}
 
     }

@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:controller="Controller.PaddController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E6B36D;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E6B36D;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PaddController">
    <children>
       <Label alignment="CENTER" layoutX="26.0" layoutY="29.0" prefHeight="34.0" prefWidth="90.0" text="메뉴등록">
          <font>
@@ -51,7 +50,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="317.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="pimg" fitHeight="150.0" fitWidth="200.0" layoutX="317.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="btnimage" layoutX="393.0" layoutY="82.0" mnemonicParsing="false" onAction="#image" prefHeight="22.0" prefWidth="80.0" text="이미지 선택" />
    </children>
 </AnchorPane>
