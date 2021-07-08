@@ -19,16 +19,6 @@ create table kiosk.member(
   phone varchar(45)
 );
 ```
-|칼럼|설명|
-|----|----|
-|num|회원번호|
-|id|회원아이디(admin, 일반)|
-|pw|회원비밀번호|
-|name|이름|
-|email|이메일|
-|phone|전화번호|
-
-
 #### 2. 제품(product)
 ```
 create table kiosk.product (
@@ -40,6 +30,7 @@ create table kiosk.product (
     pimage varchar(1000)
 );
 ```
+##### 정보
 |칼럼|설명|
 |----|----|
 |pnum|제품번호|
@@ -48,6 +39,10 @@ create table kiosk.product (
 |pprice|제품가격|
 |pstock|제품재고|
 |pimgag|이미지|
+
+##### 예시
+|pnum|ptitle|pcontents|pprice|pstock|pimgae|
+|1|샌드위치|햄치즈|6000|15| image경로|
 
 #### 3. 주문(order)
 ```
