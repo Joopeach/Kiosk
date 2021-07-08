@@ -50,7 +50,7 @@ create table kiosk.product (
 ##### 정보
 |칼럼|설명|
 |----|----|
-|pnum|제품번호|
+|onum|제품번호|
 |ptitle|제품명|
 |pcontents|제품설명|
 |pprice|제품가격|
@@ -62,43 +62,32 @@ create table kiosk.product (
 |----|----|----|----|----|----|
 |1|샌드위치|햄치즈|6000|15| ../image/ryan.png|
 
-#### 3. 주문(order)
-```
-create table kiosk.order (
-    onum int primary key,
-    pnum int not null,
-    num int not null,
-    otime varchar(100) not null,
-    osituation varchar(100) not null,
-    foreign key (pnum) references product(pnum),
-    foreign key (num) references member(num)
-);
-```
-
-##### 4. 주문들어온 정보(Kitchen_order)
+##### 3. 주문들어온 정보(Kitchen_order)
 ```
 create table kiosk.Kitchen_order (
-	num int primary key auto_increment,
+	onum int primary key auto_increment,
 	pnum varchar(10) not null,
+	num int not null,
 	pquantity varchar(100) not null, 
-	pprice int not null ,
+	oprice int not null ,
 	otime varchar(100),
 	osituation varchar(100) not null,
 	foreign key(pnum) references Product(pnum)
+	foreign key(num) references ()
 );
 ```
 ##### 정보
 |칼럼|설명|
 |----|----|
-|num|회원번호|
+|onum|회원번호|
 |pnum|제품명|
 |pquantity|제품갯수|
-|pprice|제품가격|
+|oprice|제품가격|
 |otime|주문시각|
 |osituation|주문현황|
 
 ##### 예시
-|num|pnum|pquantity|pprice|otime|osituation|
+|onum|pnum|pquantity|oprice|otime|osituation|
 |----|----|----|----|----|----|
 |1|1 아메리카노|1|3000|13:00|완료|
 |2|3 카라멜마키아또|2|6000|14:15|진행중|
