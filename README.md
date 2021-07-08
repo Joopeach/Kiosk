@@ -26,4 +26,14 @@ create table kiosk.product (
     pstock int,
     pimage varchar(1000)
 );
+
+create table kiosk.order (
+	onum int primary key,
+    pnum int not null,
+    num int not null,
+    otime varchar(100) not null,
+    osituation varchar(100) not null,
+    foreign key (pnum) references product(pnum),
+    foreign key (num) references member(num)
+);
 ```
