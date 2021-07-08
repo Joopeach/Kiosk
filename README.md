@@ -89,6 +89,7 @@ create table kiosk.Kitchen_order (
 ```
 ##### 정보
 |칼럼|설명|
+|----|----|
 |num|회원번호|
 |pnum|제품명|
 |pquantity|제품갯수|
