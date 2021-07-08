@@ -8,6 +8,7 @@
 #### 최은영
 
 #### mysql DB
+```
 create table member(
   num INT primary key,
   id varchar(45) not null,
@@ -25,3 +26,4 @@ create table kiosk.product (
     pstock int,
     pimage varchar(1000)
 );
+```
