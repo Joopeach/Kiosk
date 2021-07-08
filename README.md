@@ -19,6 +19,16 @@ create table kiosk.member(
   phone varchar(45)
 );
 ```
+|칼럼|설명|
+|----|----|
+|num|회원번호|
+|id|회원아이디(admin, 일반)|
+|pw|회원비밀번호|
+|name|이름|
+|email|이메일|
+|phone|전화번호|
+
+
 #### 2. 제품(product)
 ```
 create table kiosk.product (
