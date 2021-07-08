@@ -62,7 +62,7 @@ create table kiosk.product (
 |----|----|----|----|----|----|
 |1|샌드위치|햄치즈|6000|15| ../image/ryan.png|
 
-##### 3. 주문들어온 정보(Kitchen_order)
+#### 3. 주문들어온 정보(Kitchen_order)
 ```
 create table kiosk.Kitchen_order (
 	onum int primary key auto_increment not null,
