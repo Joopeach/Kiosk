@@ -5,7 +5,7 @@ public class Kitchen_Order {
 	private int onum;
 	private int pnum;
 	private int num;
-	private int pquantity;
+	private int oquantity;
 	private int oprice;
 	private String otime;
 	private String osituation;
@@ -15,7 +15,7 @@ public class Kitchen_Order {
 		this.onum = onum;
 		this.pnum = pnum;
 		this.num = num;
-		this.pquantity = pquantity;
+		this.oquantity = pquantity;
 		this.oprice = oprice;
 		this.otime = otime;
 		this.osituation = osituation;
@@ -45,12 +45,12 @@ public class Kitchen_Order {
 		this.num = num;
 	}
 
-	public int getPquantity() {
-		return pquantity;
+	public int getOquantity() {
+		return oquantity;
 	}
 
-	public void setPquantity(int pquantity) {
-		this.pquantity = pquantity;
+	public void setOquantity(int pquantity) {
+		this.oquantity = pquantity;
 	}
 
 	public int getOprice() {
