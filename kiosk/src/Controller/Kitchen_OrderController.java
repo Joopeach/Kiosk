@@ -81,7 +81,7 @@ public class Kitchen_OrderController implements Initializable { // 직원이 주방에
 		
 		// 1. Order 에서 가져오기
 		KitchenDao kitchenDao = KitchenDao.getKitchenDao();
-		ObservableList<Order> kitchen = kitchenDao.allproduct();
+		ObservableList<Order> orders = kitchenDao.allproduct();
 		// 2. 모든 제품을 테이블에 셋팅
 					// 각 열에 각 객체의 필드를 넣기 
 		TableColumn tc = tableview.getColumns().get(0);
@@ -103,7 +103,7 @@ public class Kitchen_OrderController implements Initializable { // 직원이 주방에
 		tc.setCellValueFactory( new PropertyValueFactory("Osituation") );
 		
 		// 테이블에 리스트 담기 
-			tableview.setItems(kitchen);
+			tableview.setItems(orders);
 				
 		// 테이블에서 행을 클릭했을때 
 		//tableview.setOnMouseClicked( ( MouseEvent event) -> { 실행코드 } );
