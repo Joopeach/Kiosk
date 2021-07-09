@@ -50,23 +50,57 @@ public class MemberDao {
 	}
 	
 	public int joinin(Member member) {
-		String sql = "insert into member values(?,?,?,?,?,?)";
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, member.getNum());
-			pstmt.setString(2, member.getId());
-			pstmt.setString(3, member.getPw());
-			pstmt.setString(4, member.getName());
-			pstmt.setString(5, member.getEmail());
-			pstmt.setString(6, member.getPhone());
-			
-			pstmt.executeUpdate();
-			
-			return 1;//등록성공
-			
-		}catch (Exception e) {
-			// TODO: handle exception
-		}		
-		return 0;//오류 
+		
+		//중복회원 검증
+			String sql1 = "select * from member where id = ? ";
+				try {
+					PreparedStatement pstmt = conn.prepareStatement(sql1);
+					pstmt.setString(1, member.getId());
+					
+					ResultSet rs = pstmt.executeQuery();
+					
+					if(rs.next()) {
+						return 2;//중복회원
+					}else {
+						String sql = "insert into member values(?,?,?,?,?,?)";
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setInt(1, member.getNum());
+						pstmt.setString(2, member.getId());
+						pstmt.setString(3, member.getPw());
+						pstmt.setString(4, member.getName());
+						pstmt.setString(5, member.getEmail());
+						pstmt.setString(6, member.getPhone());
+						
+						pstmt.executeUpdate();
+						
+						return 1;//등록성공
+					}
+				}catch (Exception e) {
+					// TODO: handle exception
+				}
+				
+				return 0;//디비오류
+		
+		
+		
+		
+//		String sql = "insert into member values(?,?,?,?,?,?)";
+//		try {
+//			PreparedStatement pstmt = conn.prepareStatement(sql);
+//			pstmt.setInt(1, member.getNum());
+//			pstmt.setString(2, member.getId());
+//			pstmt.setString(3, member.getPw());
+//			pstmt.setString(4, member.getName());
+//			pstmt.setString(5, member.getEmail());
+//			pstmt.setString(6, member.getPhone());
+//			
+//			pstmt.executeUpdate();
+//			
+//			return 1;//등록성공
+//			
+//		}catch (Exception e) {
+//			// TODO: handle exception
+//		}		
+//		return 0;//오류 
 	}
 }
