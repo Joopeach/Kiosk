@@ -58,12 +58,12 @@ public class JoinController implements Initializable {
     	String email = txtemail.getText();
     	String phone = txtphone.getText();
     	
-    	System.out.println("회원번호 : " + num );
-    	System.out.println("id : " + id );
-    	System.out.println("pw : " + pw );
-    	System.out.println("name : " + name );
-    	System.out.println("email : " + email );
-    	System.out.println("phone : " + phone );
+//    	System.out.println("회원번호 : " + num );
+//    	System.out.println("id : " + id );
+//    	System.out.println("pw : " + pw );
+//    	System.out.println("name : " + name );
+//    	System.out.println("email : " + email );
+//    	System.out.println("phone : " + phone );
     
 
     	member = new Member(num, id, pw, name, email, phone);
@@ -88,10 +88,15 @@ public class JoinController implements Initializable {
     		} catch(Exception e) {
     			e.printStackTrace();
     		} 	
+    	}else if(result == 2) {
+    		Alert alert = new Alert(AlertType.CONFIRMATION);
+    		alert.setContentText("중복 아이디가 있습니다");
+    		alert.showAndWait();
+    	}
     	}
 
     }
 
 	
 
-}
+
