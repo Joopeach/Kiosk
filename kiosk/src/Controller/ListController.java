@@ -17,9 +17,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -62,15 +59,31 @@ public class ListController implements Initializable {
     @FXML
     private Label lbl_5;
 
-    @FXML
-    private TableView<Cart> tableview;
 
     @FXML
     private Button btncancel;
 
     @FXML
     private Button btnsuccess;
+    
+    private static ListController instance;
+    
+    public ListController() {
+		instance = this;
+	}
+    
+    public static ListController getinstance() {
+    	
+		return instance;
+    }
+    
+    public ObservableList<Cart> getcart() {
+		return carts;
+	}
+    
+    
 
+    ObservableList<Cart> carts= FXCollections.observableArrayList();
     
     @FXML
     void btn_1(ActionEvent event) {
@@ -79,54 +92,47 @@ public class ListController implements Initializable {
     	
     	ArrayList<Product> products = productDao.allproduct();
     	
-    	ObservableList<Cart> carts = FXCollections.observableArrayList();
+    	// 리스트 담을 임시 객체 생성
+     	Product sproduct = new Product();
     	
-    	Cart cart = new Cart(products.get(0).getPtitle(), 1, products.get(0).getPprice());
     	
-    	if(btn_1.getText().equals("아메리카노")) {
-    		
-     		System.out.println("아메리카노 버튼 클릭");
-     		
-     		// 리스트 담을 임시 객체 생성
-	
-     		carts.add(cart);
-     		
-     		// 확인용
-//     		System.out.println(carts.get(0).getTitle());
-//     		System.out.println(carts.get(0).getCups());
-//     		System.out.println(carts.get(0).getPrice());	
-     		
-     		// 제품명
-     		TableColumn tc = tableview.getColumns().get(0);
-     		tc.setCellValueFactory(new PropertyValueFactory("title"));
+    	for( Product product : products ) {
         	
-        	// 수량
-        	tc = tableview.getColumns().get(1);
-        	tc.setCellValueFactory(new PropertyValueFactory("cups"));
-        	
-        	// 가격
-        	tc = tableview.getColumns().get(2);
-        	tc.setCellValueFactory(new PropertyValueFactory("price"));
-        	
-        	tableview.setItems(carts);
-        	
+			if( product.getPnum() ==  Integer.parseInt( btn_1.getText() ) ) {
+				sproduct = product;
+			}
     	}
+  	
+    	int s = 0 ;
     	
-    	// tableview에 있으면 cups 수 1씩 증가
-     	if(tableview.getColumns().get(0).equals("아메리카노")) {
-     		System.out.println("아메리카노 있음");	
-     		
-     		// 수량 증가 
-     		cart.setCups(cart.getCups() +1);
-     		
-     		//tableview 새로고침 => 화면전환
-     			
-     	}
+    	if(  sproduct.getPnum() == Integer.parseInt( btn_1.getText( ))  ) {
+    		
+    		for(  int i = 0 ; i<carts.size() ; i++  ) {
+    			
+    			if( carts.get(i).getTitle().equals(sproduct.getPtitle() ) ) {
+    				carts.get(i).setCups( carts.get(i).getCups() + 1  ) ;
+    				carts.get(i).setPrice(carts.get(i).getCups() * carts.get(i).getPrice());
+    				s = 1;
+    				System.out.println(     carts.get(i).getCups() );	
+    			}
+    			
+    		}
+    	}
+    	if( s == 0 ) { 
+    		int count = 1;
+    		Cart cart = new Cart(sproduct.getPtitle() , count , sproduct.getPprice() * count  );
+    		carts.add(cart); 	
+    	} ; 
+
+    		// 화면 새로고침
+        	loadpage2( "table" ); 	
     	
     }
 
     @FXML
     void btn_2(ActionEvent event) {
+    	
+
     	
     }
 
@@ -198,10 +204,27 @@ public class ListController implements Initializable {
 		}
     	
     }
+    
+    // 테이블뷰 이동 메소드
+    public void loadpage2(String page) {
+    	
+    	try {
+    		Parent parent = FXMLLoader.load(getClass().getResource("/FXML/" + page + ".fxml"));
+    		
+    		borderpane.setCenter(parent);
+    		
+    	}catch (Exception e) {
+    		
+		}
+    	
+    }
+	    
 	    
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		btn_1.setText("1");
 		
 		// dao 객체 생성
 		ProductDao productDao = ProductDao.getProductDao();
@@ -212,7 +235,7 @@ public class ListController implements Initializable {
 		try {
 			// 각 컨트롤러에 값 넣기
 	//		System.out.println(products.get(0).getPtitle());
-			btn_1.setText(products.get(0).getPtitle());
+			//btn_1.setText(products.get(0).getPtitle());
 			lbl_1.setText(" KRW : " + products.get(0).getPprice() + "원");
 			
 			btn_2.setText(products.get(1).getPtitle());

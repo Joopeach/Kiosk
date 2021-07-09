@@ -24,15 +24,6 @@
          </children>
       </AnchorPane>
    </top>
-   <center>
-      <TableView fx:id="tableview" prefHeight="158.0" prefWidth="504.0" BorderPane.alignment="CENTER">
-        <columns>
-            <TableColumn prefWidth="242.0" text="제품명" />
-            <TableColumn prefWidth="187.33334350585938" text="수량" />
-            <TableColumn prefWidth="229.33334350585938" text="가격" />
-        </columns>
-      </TableView>
-   </center>
    <bottom>
       <AnchorPane prefHeight="69.0" prefWidth="660.0" BorderPane.alignment="CENTER">
          <children>
@@ -41,4 +32,15 @@
          </children>
       </AnchorPane>
    </bottom>
+   <center>
+      <AnchorPane prefHeight="184.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView prefHeight="171.0" prefWidth="700.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+   </center>
 </BorderPane>
