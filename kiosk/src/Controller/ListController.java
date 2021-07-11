@@ -81,16 +81,14 @@ public class ListController implements Initializable {
 		return carts;
 	}
     
-    
+    ProductDao productDao = ProductDao.getProductDao();
+	
+	ArrayList<Product> products = productDao.allproduct();
 
     ObservableList<Cart> carts= FXCollections.observableArrayList();
     
     @FXML
     void btn_1(ActionEvent event) {
-    	
-    	ProductDao productDao = ProductDao.getProductDao();
-    	
-    	ArrayList<Product> products = productDao.allproduct();
     	
     	// 리스트 담을 임시 객체 생성
      	Product sproduct = new Product();
@@ -132,23 +130,158 @@ public class ListController implements Initializable {
     @FXML
     void btn_2(ActionEvent event) {
     	
+    	// 리스트 담을 임시 객체 생성
+     	Product sproduct = new Product();
+    	
+    	
+    	for( Product product : products ) {
+        	
+			if( product.getPnum() ==  Integer.parseInt( btn_2.getText() ) ) {
+				sproduct = product;
+			}
+    	}
+  	
+    	int s = 0 ;
+    	
+    	if(  sproduct.getPnum() == Integer.parseInt( btn_2.getText( ))  ) {
+    		
+    		for(  int i = 0 ; i<carts.size() ; i++  ) {
+    			
+    			if( carts.get(i).getTitle().equals(sproduct.getPtitle() ) ) {
+    				carts.get(i).setCups( carts.get(i).getCups() + 1  ) ;
+    				carts.get(i).setPrice(carts.get(i).getCups() * carts.get(i).getPrice());
+    				s = 1;
+    				System.out.println(     carts.get(i).getCups() );	
+    			}
+    			
+    		}
+    	}
+    	if( s == 0 ) { 
+    		int count = 1;
+    		Cart cart = new Cart(sproduct.getPtitle() , count , sproduct.getPprice() * count  );
+    		carts.add(cart); 	
+    	} ; 
 
+    		// 화면 새로고침
+        	loadpage2( "table" );
     	
     }
 
     @FXML
     void btn_3(ActionEvent event) {
 
+    	// 리스트 담을 임시 객체 생성
+     	Product sproduct = new Product();
+    	
+    	
+    	for( Product product : products ) {
+        	
+			if( product.getPnum() ==  Integer.parseInt( btn_3.getText() ) ) {
+				sproduct = product;
+			}
+    	}
+  	
+    	int s = 0 ;
+    	
+    	if(  sproduct.getPnum() == Integer.parseInt( btn_3.getText( ))  ) {
+    		
+    		for(  int i = 0 ; i<carts.size() ; i++  ) {
+    			
+    			if( carts.get(i).getTitle().equals(sproduct.getPtitle() ) ) {
+    				carts.get(i).setCups( carts.get(i).getCups() + 1  ) ;
+    				carts.get(i).setPrice(carts.get(i).getCups() * carts.get(i).getPrice());
+    				s = 1;
+    				System.out.println( carts.get(i).getCups() );	
+    			}
+    			
+    		}
+    	}
+    	if( s == 0 ) { 
+    		int count = 1;
+    		Cart cart = new Cart(sproduct.getPtitle() , count , sproduct.getPprice() * count  );
+    		carts.add(cart); 	
+    	} ; 
+
+    		// 화면 새로고침
+        	loadpage2( "table" );
     }
     
     @FXML
     void btn_4(ActionEvent event) {
 
+    	// 리스트 담을 임시 객체 생성
+     	Product sproduct = new Product();
+    	
+    	
+    	for( Product product : products ) {
+        	
+			if( product.getPnum() ==  Integer.parseInt( btn_4.getText() ) ) {
+				sproduct = product;
+			}
+    	}
+  	
+    	int s = 0 ;
+    	
+    	if(  sproduct.getPnum() == Integer.parseInt( btn_4.getText( ))  ) {
+    		
+    		for(  int i = 0 ; i<carts.size() ; i++  ) {
+    			
+    			if( carts.get(i).getTitle().equals(sproduct.getPtitle() ) ) {
+    				carts.get(i).setCups( carts.get(i).getCups() + 1  ) ;
+    				carts.get(i).setPrice(carts.get(i).getCups() * carts.get(i).getPrice());
+    				s = 1;
+    				System.out.println( carts.get(i).getCups() );	
+    			}
+    			
+    		}
+    	}
+    	if( s == 0 ) { 
+    		int count = 1;
+    		Cart cart = new Cart(sproduct.getPtitle() , count , sproduct.getPprice() * count  );
+    		carts.add(cart); 	
+    	} ; 
+
+    		// 화면 새로고침
+        	loadpage2( "table" );
     }
 
     @FXML
     void btn_5(ActionEvent event) {
 
+    	// 리스트 담을 임시 객체 생성
+     	Product sproduct = new Product();
+    	
+    	
+    	for( Product product : products ) {
+        	
+			if( product.getPnum() ==  Integer.parseInt( btn_5.getText() ) ) {
+				sproduct = product;
+			}
+    	}
+  	
+    	int s = 0 ;
+    	
+    	if(  sproduct.getPnum() == Integer.parseInt( btn_5.getText( ))  ) {
+    		
+    		for(  int i = 0 ; i<carts.size() ; i++  ) {
+    			
+    			if( carts.get(i).getTitle().equals(sproduct.getPtitle() ) ) {
+    				carts.get(i).setCups( carts.get(i).getCups() + 1  ) ;
+    				carts.get(i).setPrice(carts.get(i).getCups() * carts.get(i).getPrice());
+    				s = 1;
+    				System.out.println( carts.get(i).getCups() );	
+    			}
+    			
+    		}
+    	}
+    	if( s == 0 ) { 
+    		int count = 1;
+    		Cart cart = new Cart(sproduct.getPtitle() , count , sproduct.getPprice() * count  );
+    		carts.add(cart); 	
+    	} ; 
+
+    		// 화면 새로고침
+        	loadpage2( "table" );
     }
 
     @FXML
@@ -174,6 +307,9 @@ public class ListController implements Initializable {
 
     @FXML
     void success(ActionEvent event) {
+    		
+    	// order DB 저장하기
+    	
 
     	// 화면 전환
     	btnsuccess.getScene().getWindow().hide();
@@ -225,6 +361,10 @@ public class ListController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		btn_1.setText("1");
+		btn_2.setText("2");
+		btn_3.setText("3");
+		btn_4.setText("4");
+		btn_5.setText("5");
 		
 		// dao 객체 생성
 		ProductDao productDao = ProductDao.getProductDao();
@@ -234,20 +374,14 @@ public class ListController implements Initializable {
 		
 		try {
 			// 각 컨트롤러에 값 넣기
-	//		System.out.println(products.get(0).getPtitle());
-			//btn_1.setText(products.get(0).getPtitle());
 			lbl_1.setText(" KRW : " + products.get(0).getPprice() + "원");
 			
-			btn_2.setText(products.get(1).getPtitle());
 			lbl_2.setText(" KRW : " + products.get(1).getPprice() + "원");
 			
-			btn_3.setText(products.get(2).getPtitle());
 			lbl_3.setText(" KRW : " + products.get(2).getPprice() + "원");
 			
-			btn_4.setText(products.get(3).getPtitle());
 			lbl_4.setText(" KRW : " + products.get(3).getPprice() + "원");
 			
-			btn_5.setText(products.get(4).getPtitle());
 			lbl_5.setText(" KRW : " + products.get(4).getPprice() + "원");
 			
 		}
