@@ -1,9 +1,9 @@
 ## 주제 : 카페 키오스크
 ### 개발툴 : JDK11, javafx, SceneBuilder, mysql
-### 사용되는 클래스 : Member, Product, Order
-### 씬빌더 fxml : main, list, order, success
+### 사용되는 클래스 : Member, Product, Order, Cart
+### 씬빌더 fxml : main, list, table, order, success, admin, join, padd, payment, Kitchen_order
 ### 담당
-#### 이보름 : 고객 주문창
+#### 이보름 : 고객 주문창(장바구니, 주문정보)
 #### 이찬주 : 주문 완료 현황변경(접수, 진행중, 완료)
 #### 최은영 : 관리자 창(회원가입, 제품등록)
 
