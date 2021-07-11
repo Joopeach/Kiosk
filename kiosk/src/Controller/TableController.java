@@ -1,6 +1,7 @@
 package Controller;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import domain.Cart;
@@ -17,6 +18,18 @@ public class TableController implements Initializable {
 	 private TableView<Cart> tableview;
 	 
 	 private ObservableList<Cart> carts;
+	 
+	 private static TableController instance;
+	 
+	 public TableController() {
+		instance = this;
+	 }
+	 public static TableController getinstance() {
+		 return instance;
+	 }
+	 public ObservableList<Cart> getcart() {
+		 return carts;
+	 }
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -34,6 +47,10 @@ public class TableController implements Initializable {
     	// 가격
     	tc = tableview.getColumns().get(2);
     	tc.setCellValueFactory(new PropertyValueFactory("price"));
+    	
+    	// 번호
+    	tc = tableview.getColumns().get(3);
+    	tc.setCellValueFactory(new PropertyValueFactory("num"));
     	
     	tableview.setItems(carts);
 		

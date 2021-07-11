@@ -10,7 +10,8 @@
          <columns>
             <TableColumn prefWidth="242.0" text="제품명" />
             <TableColumn prefWidth="187.33334350585938" text="수량" />
-            <TableColumn prefWidth="229.33334350585938" text="가격" />
+            <TableColumn prefWidth="180.00003051757812" text="가격" />
+            <TableColumn prefWidth="125.33331298828125" text="번호" />
          </columns>
       </TableView>
    </children>

@@ -26,13 +26,41 @@ public class KitchenDao {
 		//db연동
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3307/kiosk?serverTime=UTC","root","1234");
+			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/kiosk?serverTime=UTC","root","1234");
 			System.out.println("DB연동 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
 	}
 
 	}
+	
+	// 이보름 추가
+	// 주문 완료 등록 메소드
+	public int addorder(Kitchen_Order kitchen_Order) {
+		
+		String SQL = "insert into kitchen_order( pnum, num, oquantity, oprice, otime, osituation )"
+						+ "values( ?, ?, ?, ?, ?, ? )";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setInt(1,kitchen_Order.getPnum());
+			pstmt.setInt(2,kitchen_Order.getNum());
+			pstmt.setInt(3,kitchen_Order.getOquantity());
+			pstmt.setInt(4,kitchen_Order.getOprice());
+			pstmt.setString(5,kitchen_Order.getOtime());
+			pstmt.setString(6,kitchen_Order.getOsituation());				
+				
+			pstmt.executeUpdate();
+				
+			return 1; //등록성공
+			
+		}// try 끝
+		catch (Exception e) {
+			
+		} return 0;
+	}
+	
+	
 	// Kitchen Order 테이블에 등록하는 메소드
 	public int ordercheck(Kitchen_Order kitchen_Order) {
 		String sql = "insert into kitchenorder(?,?,?,?,?,?,?)";

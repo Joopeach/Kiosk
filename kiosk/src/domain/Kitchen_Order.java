@@ -10,6 +10,19 @@ public class Kitchen_Order {
 	private String otime;
 	private String osituation;
 	
+	// 이보름 추가 생성자1
+	public Kitchen_Order() { }
+	
+	// 이보름 추가 생성자2
+	public Kitchen_Order(int pnum, int num, int pquantity, int oprice, String otime, String osituation) {
+		this.pnum = pnum;
+		this.num = num;
+		this.oquantity = pquantity;
+		this.oprice = oprice;
+		this.otime = otime;
+		this.osituation = osituation;
+	}
+	
 	public Kitchen_Order(int onum, int pnum, int num, int pquantity, int oprice, String otime, String osituation) {
 		
 		this.onum = onum;

@@ -3,6 +3,7 @@ package domain;
 public class Cart {
 
 	// 필드
+	private int num;
 	private String title;
 	private int cups;
 	private int price;
@@ -10,13 +11,22 @@ public class Cart {
 	// 생성자
 	public Cart() { }
 
-	public Cart(String title, int cups, int price) {
+	public Cart(int num, String title, int cups, int price) {
+		this.num = num;
 		this.title = title;
 		this.cups = cups;
 		this.price = price;
 	}
 
 	// get/set
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+	
 	public String getTitle() {
 		return title;
 	}

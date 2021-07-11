@@ -1,11 +1,16 @@
 package Controller;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
+import DAO.KitchenDao;
 import DAO.ProductDao;
 import domain.Cart;
+import domain.Kitchen_Order;
 import domain.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,8 +20,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -81,6 +89,12 @@ public class ListController implements Initializable {
 		return carts;
 	}
     
+    public Kitchen_Order getorder() {
+    	return order;
+    }
+    
+    private static Kitchen_Order order;
+    
     ProductDao productDao = ProductDao.getProductDao();
 	
 	ArrayList<Product> products = productDao.allproduct();
@@ -101,7 +115,7 @@ public class ListController implements Initializable {
 			}
     	}
   	
-    	int s = 0 ;
+    	int s = 0 ;	// 스위치
     	
     	if(  sproduct.getPnum() == Integer.parseInt( btn_1.getText( ))  ) {
     		
@@ -118,7 +132,7 @@ public class ListController implements Initializable {
     	}
     	if( s == 0 ) { 
     		int count = 1;
-    		Cart cart = new Cart(sproduct.getPtitle() , count , sproduct.getPprice() * count  );
+    		Cart cart = new Cart(sproduct.getPnum(), sproduct.getPtitle() , count , sproduct.getPprice() * count  );
     		carts.add(cart); 	
     	} ; 
 
@@ -158,7 +172,7 @@ public class ListController implements Initializable {
     	}
     	if( s == 0 ) { 
     		int count = 1;
-    		Cart cart = new Cart(sproduct.getPtitle() , count , sproduct.getPprice() * count  );
+    		Cart cart = new Cart(sproduct.getPnum(), sproduct.getPtitle() , count , sproduct.getPprice() * count  );
     		carts.add(cart); 	
     	} ; 
 
@@ -198,7 +212,7 @@ public class ListController implements Initializable {
     	}
     	if( s == 0 ) { 
     		int count = 1;
-    		Cart cart = new Cart(sproduct.getPtitle() , count , sproduct.getPprice() * count  );
+    		Cart cart = new Cart(sproduct.getPnum(), sproduct.getPtitle() , count , sproduct.getPprice() * count  );
     		carts.add(cart); 	
     	} ; 
 
@@ -237,7 +251,7 @@ public class ListController implements Initializable {
     	}
     	if( s == 0 ) { 
     		int count = 1;
-    		Cart cart = new Cart(sproduct.getPtitle() , count , sproduct.getPprice() * count  );
+    		Cart cart = new Cart(sproduct.getPnum(), sproduct.getPtitle() , count , sproduct.getPprice() * count  );
     		carts.add(cart); 	
     	} ; 
 
@@ -276,7 +290,7 @@ public class ListController implements Initializable {
     	}
     	if( s == 0 ) { 
     		int count = 1;
-    		Cart cart = new Cart(sproduct.getPtitle() , count , sproduct.getPprice() * count  );
+    		Cart cart = new Cart(sproduct.getPnum(), sproduct.getPtitle() , count , sproduct.getPprice() * count  );
     		carts.add(cart); 	
     	} ; 
 
@@ -305,26 +319,63 @@ public class ListController implements Initializable {
     	
     }
 
+    // 주문완료 버튼 클릭
     @FXML
     void success(ActionEvent event) {
+    	    	
+    	carts = TableController.getinstance().getcart();
+    	
+    	// 주문완료 버튼 클릭 => order DB 저장하기
+    	for(int i=0; i<carts.size(); i++) {
     		
-    	// order DB 저장하기
+    		int pnum = carts.get(i).getNum();
+    		int oquantity = carts.get(i).getCups();
+    		int oprice = carts.get(i).getPrice();
+    		
+//    		System.out.println(pnum);
+//    		System.out.println(oquantity);
+//        	System.out.println(oprice);
+        	
+        	//접수 시간
+        	Date date = new Date();
+        	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd/HH:mm:ss");
+        	String odate = format.format(date);
+//        	System.out.println(order.getOtime());
+        	
+        	Kitchen_Order order = new Kitchen_Order(pnum, 1, oquantity, oprice, odate, "주문 접수");
+        	
+        	// 임시 객체 생성해 담고
+        	ArrayList<Kitchen_Order> orders = new ArrayList<>();
+        	orders.add(order);
+        	
+        	KitchenDao kitchenDao = KitchenDao.getKitchenDao();
+        	
+        	int result = kitchenDao.addorder(order);
+        	
+        	if(result == 1) {	// 성공
+        		
+        		// 화면 전환
+        		btnsuccess.getScene().getWindow().hide();
+        		
+        		try {
+		    		Stage stage = new Stage();
+		    		Parent parent = FXMLLoader.load(getClass().getResource("/FXML/success.fxml"));
+		    		Scene scene = new Scene(parent);
+		    		stage.setScene(scene);
+		    		stage.setResizable(false);
+		    		stage.setTitle("SUCCESS PAGE");
+		    		stage.show();
+		    		
+		    	}catch (Exception e) {
+					e.printStackTrace();
+				}    	
+        	} else {	// 실패
+        		
+        		System.out.println("db 저장 실패");
+        	}
+    	}
     	
 
-    	// 화면 전환
-    	btnsuccess.getScene().getWindow().hide();
-
-    	try {
-    		Stage stage = new Stage();
-    		Parent parent = FXMLLoader.load(getClass().getResource("/FXML/success.fxml"));
-    		Scene scene = new Scene(parent);
-    		stage.setResizable(false);
-    		stage.setTitle("SUCCESS PAGE");
-    		stage.show();
-    		
-    	}catch (Exception e) {
-			
-		}    	
     }
     
     // 페이지 이동 메소드
